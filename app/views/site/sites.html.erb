@@ -1,0 +1,11 @@
+<%= render "pages/header" %>
+
+<h1>Sites</h1>
+
+<ul>
+  <% @sites.each do |site| %>
+    <li>
+      <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s).</p>
+    </li>
+  <% end %>
+</ul>
