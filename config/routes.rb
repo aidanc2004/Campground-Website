@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
-  get "/sites", to: "site#sites"
+  get "/sites", to: "sites#sites"
 
-  get "/sites/:id/reservation", to: "reservation#new", as: "reservation"
+  resources :sites do
+    resources :reservations
+  end
+
+  # get "/sites/:id/reservation", to: "reservation#new", as: "reservation"
 end

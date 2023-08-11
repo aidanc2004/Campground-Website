@@ -6,7 +6,7 @@
   <% @sites.each do |site| %>
     <li>
       <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s).</p>
-      <%= link_to "Make Reservation", reservation_path(site) %>
+      <%= link_to "Make Reservation", new_site_reservation_path(site.id) %>
     </li>
   <% end %>
 </ul>
