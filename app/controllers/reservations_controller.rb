@@ -5,6 +5,12 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @site = Site.find(params[:site_id])
+    @reservation = @site.reservations.create(reservation_params)
+    # todo: errors and error handling
+    if @reservation.save
+      redirect_to sites_path
+    end
   end
 
   private
