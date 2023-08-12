@@ -1,3 +1,5 @@
+# TODO: make sure end date is after start date
+
 class Reservation < ApplicationRecord
   belongs_to :site
 

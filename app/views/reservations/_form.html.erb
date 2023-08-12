@@ -1,15 +1,17 @@
-<%= form_with model: [ @site, @site.reservations.build ] do |form| %>
+<%# TODO: Add errors %>
+
+<%= form_with model: [ @site, @reservation ] do |form| %>
   <div>
     <%= form.label "Name:" %>
     <%= form.text_field :name  %>
   </div>
   <div>
     <%= form.label "Check in:" %>
-    <%= form.date_field :start  %>
+    <%= form.date_field :start %>
   </div>
   <div>
     <%= form.label "Check out:" %>
-    <%= form.date_field :end  %>
+    <%= form.date_field :end %>
   </div>
   <div>
     <%= form.submit %>
