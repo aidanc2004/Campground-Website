@@ -5,13 +5,17 @@
     font-size: 1.25rem;
 }
 
-body {
-    width: 80vw;
-    margin: 0 auto;
-}
-
 h1 {
     font-size: 2rem;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+#main {
+    width: 80vw;
+    margin: 0 auto;
 }
 
 /* Header */
