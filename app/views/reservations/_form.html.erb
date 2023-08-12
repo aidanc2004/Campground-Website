@@ -2,17 +2,27 @@
 
 <%= form_with model: [ @site, @reservation ] do |form| %>
   <div>
-    <%= form.label "Name:" %>
+    <%= form.label "Full Name:" %> <br>
     <%= form.text_field :name  %>
+    <% @reservation.errors.full_messages_for(:name).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
   </div>
   <div>
-    <%= form.label "Check in:" %>
+    <%= form.label "Check in:" %> <br>
     <%= form.date_field :start %>
+    <% @reservation.errors.full_messages_for(:start).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
   </div>
   <div>
-    <%= form.label "Check out:" %>
+    <%= form.label "Check out:" %> <br>
     <%= form.date_field :end %>
+    <% @reservation.errors.full_messages_for(:end).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
   </div>
+  <br>
   <div>
     <%= form.submit %>
   </div>

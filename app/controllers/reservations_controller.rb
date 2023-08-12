@@ -1,4 +1,8 @@
 class ReservationsController < ApplicationController
+  def show
+    @reservation = Reservation.find(params[:id])
+  end
+
   def new
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.new
@@ -6,10 +10,12 @@ class ReservationsController < ApplicationController
 
   def create
     @site = Site.find(params[:site_id])
-    @reservation = @site.reservations.create(reservation_params)
-    # todo: errors and error handling
+    @reservation = @site.reservations.new(reservation_params)
+
     if @reservation.save
-      redirect_to sites_path
+      redirect_to site_reservation_path(id: @reservation.id)
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

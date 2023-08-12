@@ -5,5 +5,5 @@ class Reservation < ApplicationRecord
 
   validates :name, presence: true
   validates :start, presence: true
-  validates :end, presence: true
+  validates :end, comparison: { greater_than: :start }
 end
