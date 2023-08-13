@@ -1,9 +1,5 @@
-<%= render "pages/header" %>
+<h1>Create Reservation</h1>
 
-<div id="main">
-  <h1>Create Reservation</h1>
+<p>Creating a reservation for <%= @site.name %> <%= @site.number %></p>
 
-  <p>Creating a reservation for <%= @site.name %> <%= @site.number %></p>
-
-  <%= render "form" %>
-</div>
+<%= render "form" %>

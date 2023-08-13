@@ -13,9 +13,13 @@ body {
     overflow-y: scroll;
 }
 
-#main {
+main {
     width: 80vw;
     margin: 0 auto;
+}
+
+.error {
+    color: red;
 }
 
 /* Header */
@@ -28,8 +32,4 @@ header {
 
 li p {
     margin-bottom: 0;
-}
-
-.error {
-    color: red;
 }
