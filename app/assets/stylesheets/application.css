@@ -34,6 +34,20 @@ header {
     right: 1rem;
 }
 
+#flash-messages {
+    position: absolute;
+    top: 0rem;
+    left: 1rem;
+}
+
+.notice {
+    color: darkgreen;
+}
+
+.alert {
+    color: red;
+}
+
 /* Sites Page */
 
 li p {
