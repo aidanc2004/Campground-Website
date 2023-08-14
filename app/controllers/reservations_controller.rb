@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.new(reservation_params)
     @reservation.user_id = current_user.id
+    @reservation.total = helpers.get_total @reservation
 
     if @reservation.save
       redirect_to site_reservation_path(id: @reservation.id)
