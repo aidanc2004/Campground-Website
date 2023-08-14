@@ -28,6 +28,12 @@ header {
     text-align: center;
 }
 
+#user-login {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
 /* Sites Page */
 
 li p {
