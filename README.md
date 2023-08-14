@@ -6,10 +6,13 @@ reservations.
 
 ## TODO:
 
-- [ ] Add and remove reservations from a site
+- [x] Add and remove reservations from a site
+- [x] User sign up and sign in
 - [ ] Add admin page for adding/removing sites and user reservations
+- [ ] Show new reservation page, login page, etc as a modal
 - [ ] Add calendar to show available sites at specific dates
 - [ ] Admin grid view of all reservations
+- [ ] Polish (Tailwind, etc)
 
 # Default Rails README.md
 > I'm not sure what to add here yet so I'll leave this here.
