@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
   def create
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.new(reservation_params)
+    @reservation.user_id = current_user.id
 
     if @reservation.save
       redirect_to site_reservation_path(id: @reservation.id)
@@ -23,6 +24,6 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-        params.require(:reservation).permit(:name, :start, :end)
+        params.require(:reservation).permit(:start, :end)
     end
 end

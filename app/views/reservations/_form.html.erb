@@ -1,13 +1,4 @@
-<%# TODO: Assign reservation to user instead of site %>
-
 <%= form_with model: [ @site, @reservation ] do |form| %>
-  <div>
-    <%= form.label "Full Name:" %> <br>
-    <%= form.text_field :name  %>
-    <% @reservation.errors.full_messages_for(:name).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %>
-  </div>
   <div>
     <%= form.label "Check in:" %> <br>
     <%= form.date_field :start %>
