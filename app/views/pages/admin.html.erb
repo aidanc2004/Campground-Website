@@ -1,3 +1,45 @@
 <h1>Admin</h1>
 
-<p>Admin page for doing admin stuff</p>
+<h2>Sites</h2>
+
+<ul>
+  <% @sites.each do |site| %>
+    <li>
+      <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s), $<%= site.price %>.</p>
+      <%= link_to "Edit", edit_site_path(site) %>
+      <%= link_to "Delete", site_path(site), method: :destroy, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "New Reservation", new_site_reservation_path(site.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New", new_site_path %>
+
+<h2>Reservations</h2>
+
+<ul>
+  <% @reservations.each do |reservation| %>
+    <li>
+      <p><%= reservation.site.name %> <%= reservation.site.number %> for
+         <%= reservation.user.name %> from <%= reservation.start %> to <%= reservation.end %>.</p>
+      <%= link_to "Edit" %>
+      <%= link_to "Delete" %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Users</h2>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <p><strong><%= user.name %></strong> <br />
+      Email: <%= user.email %>, Phone: <%= user.phone %>.</p>
+      <%= link_to "Edit" %>
+      <%= link_to "Delete" %>
+    </li>
+  <% end %>
+</ul>
+
+<%# TODO: Make new user without signing out/in %>
+<%= link_to "New" %>

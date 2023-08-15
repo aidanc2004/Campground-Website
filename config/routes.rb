@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/contact", to: "pages#contact"
   get "/sites", to: "sites#sites"
   
-  # Admin page (TODO: Maybe move from pages to its own controller?)
+  # Admin page
   get "/admin", to: "pages#admin"
 
   resources :sites do
