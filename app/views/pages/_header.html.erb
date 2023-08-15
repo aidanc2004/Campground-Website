@@ -15,6 +15,9 @@
     <%= link_to "Sites", "/sites" %>
     <%= link_to "Rules and Policies", "/rules" %>
     <%= link_to "Contact", "/contact" %>
+    <% if current_user && current_user.is_admin? %>
+      <%= link_to "Admin", "/admin" %>
+    <% end %>
   </nav>
   <hr>
 </header>

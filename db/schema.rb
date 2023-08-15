@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_223646) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_040059) do
   create_table "reservations", force: :cascade do |t|
     t.integer "site_id", null: false
     t.date "start"
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_223646) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "user"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
