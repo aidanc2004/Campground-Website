@@ -15,10 +15,16 @@ class SitesController < ApplicationController
   end
 
   def edit
+    # Make sure user is an admin
+    current_user.authenticate_admin
+
     @site = Site.find(params[:id])
   end
 
   def update
+    # Make sure user is an admin
+    current_user.authenticate_admin
+
     @site = Site.find(params[:id])
 
     if @site.update(site_params)
