@@ -9,25 +9,19 @@ class SitesController < ApplicationController
 
   def new
     # Make sure user is an admin
-    if !current_user.is_admin?
-      flash[:alert] = "Must be an admin to view this page."
-      redirect_to :root
-    end
+    current_user.authenticate_admin
 
     @site = Site.new
   end
 
   def create
     # Make sure user is an admin
-    if !current_user.is_admin?
-      flash[:alert] = "Must be an admin to view this page."
-      redirect_to :root
-    end
+    current_user.authenticate_admin
 
     @site = Site.new(site_params)
 
     if @site.save
-      redirect_to sites_path
+      redirect_to :admin
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,13 +29,12 @@ class SitesController < ApplicationController
 
   def destroy
     # Make sure user is an admin
-    if !current_user.is_admin?
-      flash[:alert] = "Must be an admin to view this page."
-      redirect_to :root
-    end
+    current_user.authenticate_admin
 
     @site = Site.find(params[:id])
     @site.destroy
+
+    redirect_to :admin
   end
 
   private
