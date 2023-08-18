@@ -7,7 +7,10 @@
     <li>
       <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s), $<%= site.price %>.</p>
       <%= link_to "Edit", edit_site_path(site) %>
-      <%= link_to "Delete", site_path(site), method: :destroy, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Destroy", site_path(site), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
       <%= link_to "New Reservation", new_site_reservation_path(site.id) %>
     </li>
   <% end %>

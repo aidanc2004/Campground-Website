@@ -1,0 +1,36 @@
+<h1>New Site</h1>
+
+<%= form_with model: @site do |form| %>
+  <div>
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %>
+    <% @site.errors.full_messages_for(:name).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :number %> <br>
+    <%= form.number_field :number %>
+    <% @site.errors.full_messages_for(:number).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :beds %> <br>
+    <%= form.number_field :beds %>
+    <% @site.errors.full_messages_for(:beds).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :price %> <br>
+    <%# TODO: Prototype, change this. %>
+    <%= form.number_field :price, step: 0.01 %>
+    <% @site.errors.full_messages_for(:price).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

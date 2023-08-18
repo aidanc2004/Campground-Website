@@ -1,0 +1,8 @@
+<h1><%= @site.name %> <%= @site.number %></h1>
+
+<ul>
+  <li>$<%= @site.price %> per night.</li>
+  <li><%= @site.beds %> Bed(s).</li>
+</ul>
+
+<%= link_to "Book now", new_site_reservation_path(@site.id) %>
