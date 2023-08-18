@@ -11,12 +11,4 @@ class User < ApplicationRecord
   def is_admin?
     self.role == "admin"
   end
-
-  # Make sure a user is a admin before continuing
-  def authenticate_admin
-    if !self.is_admin?
-      flash[:alert] = "Must be an admin to view this page."
-      redirect_to :root
-    end
-  end
 end

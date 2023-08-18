@@ -9,21 +9,30 @@ class SitesController < ApplicationController
 
   def new
     # Make sure user is an admin
-    current_user.authenticate_admin
+    if !current_user.is_admin?
+      flash[:alert] = "Must be an admin to view this page."
+      redirect_to :root
+    end
 
     @site = Site.new
   end
 
   def edit
     # Make sure user is an admin
-    current_user.authenticate_admin
+    if !current_user.is_admin?
+      flash[:alert] = "Must be an admin to view this page."
+      redirect_to :root
+    end
 
     @site = Site.find(params[:id])
   end
 
   def update
     # Make sure user is an admin
-    current_user.authenticate_admin
+    if !self.is_admin?
+      flash[:alert] = "Must be an admin to view this page."
+      redirect_to :root
+    end
 
     @site = Site.find(params[:id])
 
@@ -36,7 +45,10 @@ class SitesController < ApplicationController
 
   def create
     # Make sure user is an admin
-    current_user.authenticate_admin
+    if !self.is_admin?
+      flash[:alert] = "Must be an admin to view this page."
+      redirect_to :root
+    end
 
     @site = Site.new(site_params)
 
@@ -49,7 +61,10 @@ class SitesController < ApplicationController
 
   def destroy
     # Make sure user is an admin
-    current_user.authenticate_admin
+    if !self.is_admin?
+      flash[:alert] = "Must be an admin to view this page."
+      redirect_to :root
+    end
 
     @site = Site.find(params[:id])
     @site.destroy

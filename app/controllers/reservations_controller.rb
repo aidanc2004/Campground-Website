@@ -28,19 +28,25 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-    # Make sure user is an admin
-    current_user.authenticate_admin
-
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.find(params[:id])
+
+    # Make sure user is an admin or created reservation
+    if !current_user.is_admin? || @reservation.user_id != current_user.id
+      flash[:alert] = "Cannot edit this user's reservation."
+      redirect_to :root
+    end
   end
 
   def update
-    # Make sure user is an admin
-    current_user.authenticate_admin
-
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.find(params[:id])
+
+    # Make sure user is an admin or created reservation
+    if !current_user.is_admin? || @reservation.user_id != current_user.id
+      flash[:alert] = "Cannot edit this user's reservation."
+      redirect_to :root
+    end
 
     if @reservation.update(reservation_params)
       redirect_to :admin
@@ -50,11 +56,14 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    # Make sure user is an admin
-    current_user.authenticate_admin
-
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.find(params[:id])
+
+    # Make sure user is an admin or created reservation
+    if !current_user.is_admin? || @reservation.user_id != current_user.id
+      flash[:alert] = "Cannot edit this user's reservation."
+      redirect_to :root
+    end
 
     @reservation.destroy
 
