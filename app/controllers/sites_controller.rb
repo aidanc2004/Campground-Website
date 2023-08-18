@@ -30,7 +30,7 @@ class SitesController < ApplicationController
     if @site.update(site_params)
       redirect_to :admin
     else
-      render :new, status: :unprocessable_entity
+      render :update, status: :unprocessable_entity
     end
   end
 

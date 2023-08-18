@@ -25,11 +25,16 @@
     <li>
       <p><%= reservation.site.name %> <%= reservation.site.number %> for
          <%= reservation.user.name %> from <%= reservation.start %> to <%= reservation.end %>.</p>
-      <%= link_to "Edit" %>
-      <%= link_to "Delete" %>
+      <%= link_to "Edit", edit_site_reservation_path(reservation.site, reservation) %>
+      <%= link_to "Destroy", site_reservation_path(id: reservation.id, site_id: reservation.site), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "New" %>
 
 <h2>Users</h2>
 

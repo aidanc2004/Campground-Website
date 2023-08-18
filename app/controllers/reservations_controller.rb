@@ -27,6 +27,40 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def edit
+    # Make sure user is an admin
+    current_user.authenticate_admin
+
+    @site = Site.find(params[:site_id])
+    @reservation = @site.reservations.find(params[:id])
+  end
+
+  def update
+    # Make sure user is an admin
+    current_user.authenticate_admin
+
+    @site = Site.find(params[:site_id])
+    @reservation = @site.reservations.find(params[:id])
+
+    if @reservation.update(reservation_params)
+      redirect_to :admin
+    else
+      render :update, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    # Make sure user is an admin
+    current_user.authenticate_admin
+
+    @site = Site.find(params[:site_id])
+    @reservation = @site.reservations.find(params[:id])
+
+    @reservation.destroy
+
+    redirect_to :admin
+  end
+
   private
     def reservation_params
         params.require(:reservation).permit(:start, :end)
