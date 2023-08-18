@@ -14,6 +14,20 @@ class SitesController < ApplicationController
     @site = Site.new
   end
 
+  def edit
+    @site = Site.find(params[:id])
+  end
+
+  def update
+    @site = Site.find(params[:id])
+
+    if @site.update(site_params)
+      redirect_to :admin
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def create
     # Make sure user is an admin
     current_user.authenticate_admin
