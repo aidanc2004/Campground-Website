@@ -1,3 +1,5 @@
+# TODO: Move these to methods on Reservation class
+
 module ReservationHelper
   # Number of nights reserved
   def get_nights(reservation)
