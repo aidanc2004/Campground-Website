@@ -2,6 +2,6 @@
 
 <p>Your reservation is for <%= @reservation.start %> - <%= @reservation.end %>. See you soon!</p>
 
-<p><strong>Nights:</strong> <%= get_nights @reservation %></p>
+<p><strong>Nights:</strong> <%= @reservation.get_nights %></p>
 
 <p><strong>Total:</strong> <%= @reservation.total %></p>

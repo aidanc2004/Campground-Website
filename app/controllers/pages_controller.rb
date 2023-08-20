@@ -11,7 +11,6 @@ class PagesController < ApplicationController
   def contact
   end
 
-  # TODO: Maybe move from pages to its own controller?
   def admin
     # Make sure the user is an admin
     if !current_user.is_admin?

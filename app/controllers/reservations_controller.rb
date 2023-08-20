@@ -31,10 +31,11 @@ class ReservationsController < ApplicationController
     end
 
     # Total price of reservation
-    @reservation.total = helpers.get_total @reservation
+    @reservation.total = @reservation.get_total
 
     # Make sure that this doesn't overlap with another reservation
     if helpers.doesnt_overlap?(@reservation) && @reservation.save
+      flash[:alert] = ""
       redirect_to site_reservation_path(id: @reservation.id)
     else
       render :new, status: :unprocessable_entity
