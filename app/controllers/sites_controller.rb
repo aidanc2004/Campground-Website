@@ -29,7 +29,7 @@ class SitesController < ApplicationController
 
   def update
     # Make sure user is an admin
-    if !self.is_admin?
+    if !current_user.is_admin?
       flash[:alert] = "Must be an admin to view this page."
       redirect_to :root
     end
@@ -45,7 +45,7 @@ class SitesController < ApplicationController
 
   def create
     # Make sure user is an admin
-    if !self.is_admin?
+    if !current_user.is_admin?
       flash[:alert] = "Must be an admin to view this page."
       redirect_to :root
     end
@@ -61,7 +61,7 @@ class SitesController < ApplicationController
 
   def destroy
     # Make sure user is an admin
-    if !self.is_admin?
+    if !current_user.is_admin?
       flash[:alert] = "Must be an admin to view this page."
       redirect_to :root
     end

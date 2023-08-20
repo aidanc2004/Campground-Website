@@ -8,14 +8,28 @@ class ReservationsController < ApplicationController
   def new
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.new
+
+    # Allow admin to pick which user a reservation is for
+    if current_user.is_admin?
+      @users = User.all
+    end
   end
 
   def create
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.new(reservation_params)
 
+    print "\n\nBBBB #{@reservation.user_id}\n\n"
+
+    if current_user.is_admin?
+      @users = User.all
+    end
+
     # What user this reservation is for
-    @reservation.user_id = current_user.id
+    if !current_user.is_admin?
+      @reservation.user_id = current_user.id
+    end
+
     # Total price of reservation
     @reservation.total = helpers.get_total @reservation
 
@@ -72,6 +86,6 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-        params.require(:reservation).permit(:start, :end)
+        params.require(:reservation).permit(:user_id, :start, :end)
     end
 end

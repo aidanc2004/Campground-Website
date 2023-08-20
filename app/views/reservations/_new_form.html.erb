@@ -1,0 +1,35 @@
+<%# Form to create a new reservation %>
+
+<%# TODO: Breaks when date is missing %>
+
+<%= form_with model: [ @site, @reservation ] do |form| %>
+  <%# Allow admin to choose a user for the reservation %>
+  <% if current_user.is_admin? %>
+  <div>
+    <%= form.label "User" %>
+    <ul>
+      <% @users.each do |user| %>
+        <li><%= form.radio_button :user_id, user.id %> <%= user.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  </div>
+  <div>
+    <%= form.label "Check in:" %> <br>
+    <%= form.date_field :start %>
+    <% @reservation.errors.full_messages_for(:start).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label "Check out:" %> <br>
+    <%= form.date_field :end %>
+    <% @reservation.errors.full_messages_for(:end).each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
