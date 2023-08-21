@@ -41,11 +41,14 @@
     <li>
       <p><strong><%= user.name %></strong> <br />
       Email: <%= user.email %>, Phone: <%= user.phone %>.</p>
-      <%= link_to "Edit" %>
-      <%= link_to "Delete" %>
+      <%= link_to "Edit", admin_edit_path(user) %>
+      <%= link_to "Destroy", admin_destroy_path(user), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    </li>
     </li>
   <% end %>
 </ul>
 
-<%# TODO: Make new user without signing out/in %>
-<%= link_to "New" %>
+<%= link_to "New", admin_new_path %>

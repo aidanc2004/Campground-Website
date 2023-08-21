@@ -19,14 +19,10 @@ class ReservationsController < ApplicationController
     @site = Site.find(params[:site_id])
     @reservation = @site.reservations.new(reservation_params)
 
-    print "\n\nBBBB #{@reservation.user_id}\n\n"
-
+    # What user this reservation is for
     if current_user.is_admin?
       @users = User.all
-    end
-
-    # What user this reservation is for
-    if !current_user.is_admin?
+    else
       @reservation.user_id = current_user.id
     end
 
@@ -47,7 +43,7 @@ class ReservationsController < ApplicationController
     @reservation = @site.reservations.find(params[:id])
 
     # Make sure user is an admin or created reservation
-    if !current_user.is_admin? || @reservation.user_id != current_user.id
+    if !current_user.is_admin? && @reservation.user_id != current_user.id
       flash[:alert] = "Cannot edit this user's reservation."
       redirect_to :root
     end
