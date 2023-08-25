@@ -40,7 +40,8 @@
   <% @users.each do |user| %>
     <li>
       <p><strong><%= user.name %></strong> <br />
-      Email: <%= user.email %>, Phone: <%= user.phone %>.</p>
+      Email: <%= user.email %>, Phone: <%= user.phone %>. <br />
+      Checked In? <%= user.checked_in %></p>
       <%= link_to "Edit", admin_edit_path(user) %>
       <%= link_to "Destroy", admin_destroy_path(user), data: {
         turbo_method: :delete,
