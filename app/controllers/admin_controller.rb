@@ -79,6 +79,21 @@ class AdminController < ApplicationController
     redirect_to :admin
   end
 
+  # Toggle if a user is checked in or out
+  def toggle_checked_in
+    # Make sure user is an admin
+    if !current_user.is_admin?
+      flash[:alert] = "Must be an admin to view this page."
+      redirect_to :root
+    end
+
+    @user = User.find(params[:id])
+
+    @user.toggle! :checked_in
+    
+    redirect_to :admin
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :phone, :email, :password)

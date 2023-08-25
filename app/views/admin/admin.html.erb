@@ -42,6 +42,7 @@
       <p><strong><%= user.name %></strong> <br />
       Email: <%= user.email %>, Phone: <%= user.phone %>. <br />
       Checked In? <%= user.checked_in %></p>
+      <%= button_to "Check in/Out", toggle_checked_in_path(user), method: :post %>
       <%= link_to "Edit", admin_edit_path(user) %>
       <%= link_to "Destroy", admin_destroy_path(user), data: {
         turbo_method: :delete,

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   put "/admin/edit/:id", to: "admin#update"
   delete "/admin/destroy/:id", to: "admin#destroy", as: "admin_destroy"
 
+  post "/admin/check_in/:id", to: "admin#toggle_checked_in", as: "toggle_checked_in"
+
   resources :sites do
     resources :reservations
   end
