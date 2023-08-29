@@ -9,10 +9,10 @@ reservations.
 - [x] Add and remove reservations from a site
 - [x] User sign up and sign in
 - [x] Add admin page for adding/removing sites, users, and reservations
-- [ ] Check in/out users from admin page
+- [x] Check in/out users from admin page
 - [ ] Polish
-  - [ ] Remove hacks
   - [ ] Switch CSS to Bootstrap
+  - [ ] Clean up admin new user code
   - [ ] Change user sign in/up and reservation creation to modal.
   - [ ] Add calendar to show available sites at specific dates
   - [ ] Admin grid view of all reservations
