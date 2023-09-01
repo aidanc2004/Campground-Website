@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
+/*@layer components {
   .btn-primary {
     @apply py-2 px-4 bg-blue-200;
   }
-}
+}*/
 
-*/
+@layer base {
+  * {
+      font-size: 1.25rem;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      scroll-behavior: smooth;
+  }
+}
