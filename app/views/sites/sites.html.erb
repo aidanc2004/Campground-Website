@@ -1,10 +1,11 @@
-<h1>Sites</h1>
+<h1 class="text-3xl p-4 font-bold">Sites</h1>
 
-<ul>
+<ul class="pl-8 list-disc">
   <% @sites.each do |site| %>
-    <li>
+    <li class="pb-2">
       <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s).</p>
-      $<%= site.price %> - <%= link_to "Make Reservation", new_site_reservation_path(site.id) %>
+      $<%= site.price %> - <%= link_to "Make Reservation", new_site_reservation_path(site.id),
+                                       class: "text-green-600 hover:text-green-800" %>
     </li>
   <% end %>
 </ul>

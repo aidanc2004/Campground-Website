@@ -1,4 +1,4 @@
-<header class="text-center p-4 bg-green-600">
+<header class="text-center p-4 pt-8 pb-8 bg-green-600">
   <%# Sign in / Sign Out %>
   <div id="user-login" class="absolute top-4 right-4">
     <% if user_signed_in? %>
@@ -10,14 +10,15 @@
     <% end %>
   </div>
 
-  <h1 class="text-4xl font-bold text-white pb-4">Campground</h1>
+  <h1 class="text-5xl font-bold text-white pb-4">Campground</h1>
+  <%# TODO: Drop shadow on hover? %>
   <nav class="text-white">
-    <%= link_to "Home", "/" %>
-    <%= link_to "Sites", "/sites" %>
-    <%= link_to "Rules and Policies", "/rules" %>
-    <%= link_to "Contact", "/contact" %>
+    <%= link_to "Home", "/", class: "hover:text-green-200 px-1" %>
+    <%= link_to "Sites", "/sites", class: "hover:text-green-200 px-1" %>
+    <%= link_to "Rules and Policies", "/rules", class: "hover:text-green-200 px-1" %>
+    <%= link_to "About", "/contact", class: "hover:text-green-200 px-1" %>
     <% if current_user && current_user.is_admin? %>
-      <%= link_to "Admin", "/admin" %>
+      <%= link_to "Admin", "/admin", class: "hover:text-green-200 px-1" %>
     <% end %>
   </nav>
 </header>
