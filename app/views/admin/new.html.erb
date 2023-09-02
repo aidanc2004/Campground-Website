@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2 class="text-3xl pb-4 font-bold">Sign up</h2>
 
 <%= form_for(:user) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
@@ -36,6 +36,6 @@
   <br />
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "text-green-700 p-1 px-2 rounded border-green-700 border-2 hover:bg-green-100 hover:cursor-pointer" %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
-<h2>Edit User</h2>
+<h2 class="text-3xl pb-4 font-bold">Edit User</h2>
 
 <%= form_for(:user, html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
+  <%= render "devise/shared/error_messages", resource: @user, class: "text-red-600" %>
 
   <div class="field">
     <%= f.label "Full Name" %><br />
@@ -30,6 +30,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "text-green-700 p-1 px-2 rounded border-green-700 border-2 hover:bg-green-100 hover:cursor-pointer" %>
   </div>
 <% end %>

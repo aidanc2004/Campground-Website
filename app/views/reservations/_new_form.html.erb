@@ -5,9 +5,9 @@
 <%= form_with model: [ @site, @reservation ] do |form| %>
   <%# Allow admin to choose a user for the reservation %>
   <% if current_user.is_admin? %>
-  <div>
+  <div class="py-4">
     <%= form.label "User" %>
-    <ul>
+    <ul class="pl-4 list-disc">
       <% @users.each do |user| %>
         <li><%= form.radio_button :user_id, user.id %> <%= user.name %></li>
       <% end %>
@@ -25,11 +25,11 @@
     <%= form.label "Check out:" %> <br>
     <%= form.date_field :end %>
     <% @reservation.errors.full_messages_for(:end).each do |message| %>
-      <div class="error"><%= message %></div>
+      <div class="error text-red-600"><%= message %></div>
     <% end %>
   </div>
   <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "text-green-700 p-1 px-2 rounded border-green-700 border-2 hover:bg-green-100 hover:cursor-pointer" %>
   </div>
 <% end %>

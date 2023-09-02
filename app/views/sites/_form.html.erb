@@ -1,33 +1,34 @@
+<%# Fix CSS %>
 <%= form_with model: @site do |form| %>
   <div>
-    <%= form.label :name %> <br>
-    <%= form.text_field :name %>
+    <%= form.label :name %>
+    <%= form.text_field :name%>
     <% @site.errors.full_messages_for(:name).each do |message| %>
-      <div class="error"><%= message %></div>
+      <div class="error text-red-600"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :number %> <br>
+    <%= form.label :number %>
     <%= form.number_field :number %>
     <% @site.errors.full_messages_for(:number).each do |message| %>
-      <div class="error"><%= message %></div>
+      <div class="error text-red-600"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :beds %> <br>
+    <%= form.label :beds %>
     <%= form.number_field :beds %>
     <% @site.errors.full_messages_for(:beds).each do |message| %>
-      <div class="error"><%= message %></div>
+      <div class="error text-red-600"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :price %> <br>
+    <%= form.label :price %>
     <%= form.number_field :price, step: 0.01 %>
     <% @site.errors.full_messages_for(:price).each do |message| %>
-      <div class="error"><%= message %></div>
+      <div class="error text-red-600"><%= message %></div>
     <% end %>
   </div>
-  <div>
-    <%= form.submit %>
+  <div class="pt-4">
+    <%= form.submit class: "text-green-700 p-1 px-2 rounded border-green-700 border-2 hover:bg-green-100 hover:cursor-pointer" %>
   </div>
 <% end %>
