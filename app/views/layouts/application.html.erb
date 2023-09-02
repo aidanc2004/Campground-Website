@@ -13,12 +13,14 @@
   <body>
     <%= render "pages/header" %>
     <%# TODO: Make absolute %>
-    <div id="flash-messages">
+    <div id="flash-messages" class="absolute right-2">
       <p class="notice text-green-600"><%= notice %></p>
       <p class="alert text-red-600"><%= alert %></p>
     </div>
-    <main>
-      <%= yield %>
+    <main class="flex justify-center">
+      <div class="p-4 w-[80%]">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>

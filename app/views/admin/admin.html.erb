@@ -1,8 +1,10 @@
-<h1 class="text-3xl p-4 font-bold">Admin</h1>
+<h1 class="text-3xl font-bold">Admin</h1>
 
-<h2 class="text-xl p-4 pt-0 font-bold">Sites</h2>
+<h2 class="text-xl py-4 font-bold">Sites</h2>
 
-<ul class="pl-8 list-disc">
+<%= link_to "New Site", new_site_path, class: "pt-4 text-green-600 hover:text-green-800" %>
+
+<ul class="pl-4 list-disc">
   <% @sites.each do |site| %>
     <li>
       <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s), $<%= site.price %>.</p>
@@ -16,11 +18,9 @@
   <% end %>
 </ul>
 
-<%= link_to "New", new_site_path, class: "pl-4 text-green-600 hover:text-green-800" %>
+<h2 class="text-xl py-4 font-bold">Reservations</h2>
 
-<h2 class="text-xl p-4 font-bold">Reservations</h2>
-
-<ul class="pl-8 list-disc">
+<ul class="pl-4 list-disc">
   <% @reservations.each do |reservation| %>
     <li>
       <p><%= reservation.site.name %> <%= reservation.site.number %> for
@@ -34,9 +34,11 @@
   <% end %>
 </ul>
 
-<h2 class="text-xl p-4 font-bold">Users</h2>
+<h2 class="text-xl py-4 font-bold">Users</h2>
 
-<ul class="pl-8 list-disc">
+<%= link_to "New User", admin_new_path, class: "text-green-600 hover:text-green-800" %>
+
+<ul class="pl-4 list-disc">
   <% @users.each do |user| %>
     <li>
       <p><strong><%= user.name %></strong> <br />
@@ -51,5 +53,3 @@
     </li>
   <% end %>
 </ul>
-
-<%= link_to "New", admin_new_path, class: "pl-4 text-green-600 hover:text-green-800" %>
