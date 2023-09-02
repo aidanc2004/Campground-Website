@@ -11,7 +11,7 @@ reservations.
 - [x] Add admin page for adding/removing sites, users, and reservations
 - [x] Check in/out users from admin page
 - [ ] Polish
-  - [ ] Switch CSS to Bootstrap
+  - [x] Switch CSS to Tailwind
   - [ ] Clean up admin new user code
   - [ ] Change user sign in/up and reservation creation to modal.
   - [ ] Add calendar to show available sites at specific dates
