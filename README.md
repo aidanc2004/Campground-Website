@@ -12,8 +12,8 @@ reservations.
 - [x] Check in/out users from admin page
 - [ ] Polish
   - [x] Switch CSS to Tailwind
-  - [ ] Clean up admin new user code
   - [ ] Change user sign in/up and reservation creation to modal.
+  - [ ] Clean up admin new user code
   - [ ] Add calendar to show available sites at specific dates
   - [ ] Admin grid view of all reservations
 
