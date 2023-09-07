@@ -1,61 +1,9 @@
+<%# TODO: Split into partials %>
+
 <h1 class="text-3xl font-bold">Admin</h1>
 
-<h2 class="text-xl py-4 font-bold">Sites</h2>
+<%= render "list_sites" %>
 
-<%= link_to "New Site", new_site_path, class: "pt-4 text-green-600 hover:text-green-800" %>
+<%= render "list_reservations" %>
 
-<ul class="pl-4 list-disc">
-  <% @sites.each do |site| %>
-    <li>
-      <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s), $<%= site.price %>.</p>
-      <%= link_to "Edit", edit_site_path(site), class: "text-green-600 hover:text-green-800 pr-1" %>
-      <%= link_to "Destroy", site_path(site), class: "text-green-600 hover:text-green-800 pr-1", data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-      } %>
-    </li>
-  <% end %>
-</ul>
-
-<h2 class="text-xl py-4 font-bold">Reservations</h2>
-
-<ul class="">
-  <% @sites.each do |site| %>
-    <li>
-      <p class="text-bold"><%= site.name %> <%= site.number %> - <%= link_to "New", new_site_reservation_path(site.id), class: "text-green-600 hover:text-green-800" %></p>
-      <ul class="pl-4 list-disc">
-        <% site.reservations.each do |reservation| %>
-          <li>
-            <p><%= reservation.site.name %> <%= reservation.site.number %> for
-            <%= reservation.user.name %> from <%= reservation.start %> to <%= reservation.end %>.</p>
-            <%= link_to "Edit", edit_site_reservation_path(reservation.site, reservation), class: "text-green-600 hover:text-green-800 pr-1" %>
-            <%= link_to "Destroy", site_reservation_path(id: reservation.id, site_id: reservation.site), class: "text-green-600 hover:text-green-800", data: {
-              turbo_method: :delete,
-              turbo_confirm: "Are you sure?"
-            } %>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
-
-<h2 class="text-xl py-4 font-bold">Users</h2>
-
-<%= link_to "New User", admin_new_path, class: "text-green-600 hover:text-green-800" %>
-
-<ul class="pl-4 list-disc">
-  <% @users.each do |user| %>
-    <li>
-      <p><strong><%= user.name %></strong> <br />
-      Email: <%= user.email %>, Phone: <%= user.phone %>. <br />
-      Checked In? <%= user.checked_in %></p>
-      <%= button_to "Check in/Out", toggle_checked_in_path(user), method: :post %>
-      <%= link_to "Edit", admin_edit_path(user), class: "text-green-600 hover:text-green-800 pr-1" %>
-      <%= link_to "Destroy", admin_destroy_path(user), class: "text-green-600 hover:text-green-800", data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-      } %>
-    </li>
-  <% end %>
-</ul>
+<%= render "list_users" %>

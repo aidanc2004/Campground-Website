@@ -1,0 +1,16 @@
+<h2 class="text-xl py-4 font-bold">Sites</h2>
+
+<%= link_to "New Site", new_site_path, class: "pt-4 text-green-600 hover:text-green-800" %>
+
+<ul class="pl-4 list-disc">
+  <% @sites.each do |site| %>
+    <li>
+      <p><strong><%= site.name %> <%= site.number %></strong> - Has <%= site.beds %> bed(s), $<%= site.price %>.</p>
+      <%= link_to "Edit", edit_site_path(site), class: "text-green-600 hover:text-green-800 pr-1" %>
+      <%= link_to "Destroy", site_path(site), class: "text-green-600 hover:text-green-800 pr-1", data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    </li>
+  <% end %>
+</ul>
