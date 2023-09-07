@@ -4,6 +4,8 @@ A mock campground website, which lets a user make a reservation for a site on
 a specific check in and check out date, and lets admins manage sites and
 reservations.
 
+Uses Devise for user sign in/out Tailwind CSS for styling.
+
 ## TODO:
 
 - [x] Add and remove reservations from a site
