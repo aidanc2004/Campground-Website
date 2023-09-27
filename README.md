@@ -20,7 +20,7 @@ Uses Devise for user sign in/out Tailwind CSS for styling.
   - [ ] Admin grid view of all reservations
 
 # Default Rails README.md
-> I'm not sure what to add here yet so I'll leave this here.
+> TOOD: Change this default Rails README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

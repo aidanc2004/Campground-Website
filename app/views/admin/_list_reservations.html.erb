@@ -1,6 +1,22 @@
 <h2 class="text-xl py-4 font-bold">Reservations</h2>
 
-<ul>
+<table class="border">
+  <%# Dates %>
+  <tr>
+    <%# TODO %>
+  </tr>
+  <%# Sites and Reservations %>
+  <% @sites.each do |site| %>
+    <tr class="border-b">
+      <th class="border p-2"><%= site.name %> <%= site.number %></th>
+      <% site.reservations.each do |reservation| %>
+        <td class="p-2"><%= reservation.user.name %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<ul class="pt-4">
   <% @sites.each do |site| %>
     <li>
       <p class="text-bold"><%= site.name %> <%= site.number %> - 
